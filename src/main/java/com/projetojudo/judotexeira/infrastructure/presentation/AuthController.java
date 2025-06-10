@@ -41,7 +41,7 @@ public class AuthController {
         String token = authUseCase.login(userLoginRequest);
 
         ResponseController<UsuarioLoginResponse> registerResponse = new ResponseController<>(
-                "Usuário registrado com sucesso",
+                "Usuário logado com sucesso",
                 new UsuarioLoginResponse(token)
         );
 
