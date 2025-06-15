@@ -5,14 +5,14 @@ import com.projetojudo.judotexeira.core.dtos.request.UsuarioRegisterRequest;
 import com.projetojudo.judotexeira.core.entities.Usuario;
 import com.projetojudo.judotexeira.core.gateway.AuthGateway;
 import com.projetojudo.judotexeira.core.usecases.AuthUseCase;
-import org.springframework.stereotype.Component;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 @Component
 public class AuthUseCaseImpl implements AuthUseCase {
-
     private final AuthGateway authGateway;
+
 
     @Override
     public String login(LoginRequest userLoginRequest) {
