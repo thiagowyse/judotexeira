@@ -2,10 +2,10 @@ package com.projetojudo.judotexeira.core.entities;
 
 import java.time.LocalDateTime;
 
-public record PostBlog(
+public record PostBlog (
         Long idPost,
         String titulo,
         String conteudo,
-        Long autorId,
+        Usuario autor,
         LocalDateTime dataPublicacao
-) {}
+){ }

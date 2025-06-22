@@ -6,4 +6,8 @@ public record Usuario(
         String email,
         String senha,
         String role
-) {}
+) {
+    public static Usuario withId(Long idUsuario) {
+        return new Usuario(idUsuario, null, null, null, null);
+    }
+}

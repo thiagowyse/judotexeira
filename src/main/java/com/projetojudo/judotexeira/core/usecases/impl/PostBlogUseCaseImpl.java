@@ -1,5 +1,7 @@
 package com.projetojudo.judotexeira.core.usecases.impl;
 
+import com.projetojudo.judotexeira.core.dtos.request.PostBlogRequest;
+import com.projetojudo.judotexeira.core.dtos.response.PostBlogResponse;
 import com.projetojudo.judotexeira.core.entities.PostBlog;
 import com.projetojudo.judotexeira.core.gateway.PostBlogGateway;
 import com.projetojudo.judotexeira.core.usecases.PostBlogUseCase;
@@ -7,31 +9,26 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Component
 public class PostBlogUseCaseImpl implements PostBlogUseCase {
 
-    private final PostBlogGateway gateway;
+    private final PostBlogGateway postBlogGateway;
 
     @Override
-    public PostBlog salvar(PostBlog postBlog) {
-        return gateway.salvar(postBlog);
+    public PostBlogResponse salvar(PostBlogRequest postBlog) {
+        return postBlogGateway.salvar(postBlog);
     }
 
     @Override
-    public Optional<PostBlog> buscarPorId(Long id) {
-        return gateway.buscarPorId(id);
+    public List<PostBlogResponse> findAll() {
+        return postBlogGateway.findAll();
     }
 
-    @Override
-    public List<PostBlog> listarTodos() {
-        return gateway.listarTodos();
-    }
 
     @Override
     public void deletar(Long id) {
-        gateway.deletar(id);
+        postBlogGateway.deletar(id);
     }
 }

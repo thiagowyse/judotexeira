@@ -7,9 +7,9 @@ spring:
     name: judotexeira
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/db
+    url: jdbc:postgresql://localhost:5432/texeira_judo
     username: postgres
-    password: postgres
+    password: 123
 
   jpa:
     hibernate:

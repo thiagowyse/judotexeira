@@ -2,9 +2,9 @@ package com.projetojudo.judotexeira.core.dtos.response;
 import java.time.LocalDateTime;
 
 public record PostBlogResponse(
-        Integer idPost,
+        Long idPost,
         String titulo,
         String conteudo,
-        Integer autorId,
+        UsuarioRegisterResponse usuario,
         LocalDateTime dataPublicacao
-) {}
+) { }

@@ -1,7 +1,10 @@
 package com.projetojudo.judotexeira.core.dtos.request;
+import java.time.LocalDateTime;
 
 public record PostBlogRequest(
-        String titulo,
-        String conteudo,
-        Integer autorId
+       Long idPost,
+       String titulo,
+       String conteudo,
+       Long idAutor,
+       LocalDateTime dataPublicacao
 ) {}

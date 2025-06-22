@@ -1,13 +1,12 @@
 package com.projetojudo.judotexeira.core.gateway;
 
-import com.projetojudo.judotexeira.core.entities.PostBlog;
+import com.projetojudo.judotexeira.core.dtos.request.PostBlogRequest;
+import com.projetojudo.judotexeira.core.dtos.response.PostBlogResponse;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface PostBlogGateway {
-    PostBlog salvar(PostBlog post);
-    Optional<PostBlog> buscarPorId(Long id);
-    List<PostBlog> listarTodos();
+    PostBlogResponse salvar(PostBlogRequest postBlog);
+    List<PostBlogResponse> findAll();
     void deletar(Long id);
 }

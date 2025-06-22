@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class AuthUsuarioGateway implements AuthGateway {
+public class AuthUsuarioGatewayImpl implements AuthGateway {
 
     private final UsuarioRepository usuarioRepository;
     private final AuthenticationManager authenticationManager;

@@ -32,14 +32,27 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.configure(http))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+
                 .authorizeHttpRequests(authorize -> authorize
                         .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
                         .requestMatchers(HttpMethod.HEAD, "/auth/validate").authenticated()
+
+                        // POSTS
+                        .requestMatchers(HttpMethod.GET, "/posts/**").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/posts/**").authenticated()
+                        .requestMatchers(HttpMethod.DELETE, "/posts/**").authenticated()
+
+                        // EVENTOS
+                        .requestMatchers(HttpMethod.GET, "/eventos/**").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/eventos/**").authenticated()
+                        .requestMatchers(HttpMethod.DELETE, "/eventos/**").authenticated()
+
                         .anyRequest().authenticated()
                 )
+
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }

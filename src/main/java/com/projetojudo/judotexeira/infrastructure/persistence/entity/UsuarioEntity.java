@@ -35,6 +35,9 @@ public class UsuarioEntity implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
+    private List<PostBlogEntity> posts;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();

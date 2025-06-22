@@ -41,6 +41,7 @@ public class UsuarioDtoMapper {
 
     public static UsuarioRegisterResponse toRegisterResponse(Usuario usuario) {
         return new UsuarioRegisterResponse(
+                usuario.idUsuario(),
                 usuario.nome(),
                 usuario.email()
         );
