@@ -13,7 +13,7 @@ public class PostBlogEntityMapper {
         }
 
         return PostBlogEntity.builder()
-                .id(postBlog.idPost())
+                .idPost(postBlog.idPost())
                 .autor(UsuarioEntityMapper.toEntity(postBlog.autor()))
                 .titulo(postBlog.titulo())
                 .conteudo(postBlog.conteudo())
@@ -27,7 +27,7 @@ public class PostBlogEntityMapper {
         }
 
         return new PostBlog(
-                entity.getId(),
+                entity.getIdPost(),
                 entity.getTitulo(),
                 entity.getConteudo(),
                 UsuarioEntityMapper.toDomain(entity.getAutor()),

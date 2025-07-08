@@ -11,7 +11,7 @@ public class EventoEntityMapper {
         }
 
         return EventoEntity.builder()
-                .id(evento.idEvento())
+                .idEvento(evento.idEvento())
                 .titulo(evento.titulo())
                 .descricao(evento.descricao())
                 .dataInicio(evento.dataInicio())
@@ -26,7 +26,7 @@ public class EventoEntityMapper {
         }
 
         return new Evento(
-                entity.getId(),
+                entity.getIdEvento(),
                 entity.getTitulo(),
                 entity.getDescricao(),
                 entity.getDataInicio(),

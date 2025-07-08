@@ -2,8 +2,8 @@ package com.projetojudo.judotexeira.infrastructure.gateway;
 
 import com.projetojudo.judotexeira.core.dtos.request.PostBlogRequest;
 import com.projetojudo.judotexeira.core.dtos.response.PostBlogResponse;
-import com.projetojudo.judotexeira.core.entities.PostBlog;
 import com.projetojudo.judotexeira.core.gateway.PostBlogGateway;
+import com.projetojudo.judotexeira.infrastructure.config.DataHoraUtils;
 import com.projetojudo.judotexeira.infrastructure.config.JWTUserData;
 import com.projetojudo.judotexeira.infrastructure.mapper.PostBlogDtoMapper;
 import com.projetojudo.judotexeira.infrastructure.mapper.PostBlogEntityMapper;
@@ -11,9 +11,7 @@ import com.projetojudo.judotexeira.infrastructure.persistence.entity.PostBlogEnt
 import com.projetojudo.judotexeira.infrastructure.persistence.entity.UsuarioEntity;
 import com.projetojudo.judotexeira.infrastructure.persistence.repository.PostBlogRepository;
 import com.projetojudo.judotexeira.infrastructure.persistence.repository.UsuarioRepository;
-import com.projetojudo.judotexeira.infrastructure.util.DataHoraUtils;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
@@ -35,7 +33,7 @@ public class PostBlogGatewayImpl implements PostBlogGateway {
                 .orElseThrow(() -> new RuntimeException("Usuário logado não encontrado no banco"));
 
         PostBlogEntity postEntity = PostBlogEntity.builder()
-                .id(postBlogRequest.idPost())
+                .idPost(postBlogRequest.idPost())
                 .titulo(postBlogRequest.titulo())
                 .conteudo(postBlogRequest.conteudo())
                 .autor(autorPersistido)
